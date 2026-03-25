@@ -9,6 +9,7 @@ import io
 import pandas as pd
 import numpy as np
 import streamlit as st
+from pathlib import Path
 from typing import Tuple, List, Optional
 
 
@@ -122,7 +123,8 @@ def render_data_import():
 
     if use_sample:
         try:
-            df = pd.read_csv("data/sample_data.csv")
+            sample_path = Path(__file__).parent.parent / "data" / "sample_data.csv"
+            df = pd.read_csv(sample_path)
             st.session_state["raw_df"] = df
             st.session_state["file_name"] = "sample_data.csv"
             st.success("已加载示例数据（BrandX 2021-2024 日频销售数据）")
