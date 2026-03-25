@@ -4,7 +4,12 @@ BrandBrain 系统配置
 import os
 
 # ===== DeepSeek API =====
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+try:
+    import streamlit as st
+    DEEPSEEK_API_KEY = st.secrets.get("DEEPSEEK_API_KEY", "")
+except:
+    DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+
 DEEPSEEK_BASE_URL = "https://api.deepseek.com/v1"
 DEEPSEEK_MODEL = "deepseek-chat"
 
