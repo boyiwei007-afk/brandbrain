@@ -1,0 +1,75 @@
+{
+    // Python 解释器设置 - 删除固定路径，让VSCode自动使用选中的解释器
+    "python.defaultInterpreterPath": "",
+    
+    // 让 VSCode 自动检测 conda 环境
+    "python.condaPath": "D:\\Lenovo\\anaconda\\Scripts\\conda.exe",
+    
+    // **修改这里：让终端自动激活选中的环境**
+    "python.terminal.activateEnvironment": true,
+    
+    // 在新终端中自动激活环境
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    
+    // 显示所有可用的 conda 环境
+    "python.conda.enabled": true,
+    
+    // 自动检测虚拟环境路径
+    "python.venvFolders": [
+        "envs",
+        ".venv",
+        "venv"
+    ],
+    
+    // 添加 conda 环境路径
+    "python.venvPath": "D:\\Lenovo\\anaconda\\envs",
+    
+    // 语言服务器设置
+    "python.languageServer": "Pylance",
+    
+    // 代码分析设置
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.diagnosticMode": "workspace",
+    
+    // 文件排除
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/*.pyc": true
+    },
+    
+    // 搜索排除
+    "search.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/*.pyc": true
+    },
+    
+    // 编辑器设置
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    
+    // Python 格式化设置
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnType": true
+    },
+    
+    // **修改这里：删除固定的环境变量，让VSCode自动管理**
+    "terminal.integrated.env.windows": {},
+    
+    // Python环境管理器设置
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    
+    // **添加：让Code Runner使用当前选中的Python解释器**
+    "code-runner.executorMap": {
+        "python": "$pythonPath -u $fullFileName"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.clearPreviousOutput": true
+}

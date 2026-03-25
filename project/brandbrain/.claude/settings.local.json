@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda run:*)",
+      "Bash(/c/Users/18791/miniconda3/envs/python-project/python.exe data/generate_sample.py)",
+      "Read(//c/Users/18791//**)",
+      "Read(//mnt/c/Users/**)",
+      "Bash(find /c /d /e -name conda.exe)",
+      "Bash(where python:*)",
+      "Bash(PYTHON=\"/d/Lenovo/anaconda/envs/python-project/python.exe\")",
+      "Bash($PYTHON data/generate_sample.py)",
+      "Bash(PYTHON=\"/d/Lenovo/anaconda/envs/python-project/python.exe\" $PYTHON -c \"import pkg_resources; [print\\(p.key\\) for p in pkg_resources.working_set]\")",
+      "Bash(PYTHON=\"/d/Lenovo/anaconda/envs/python-project/python.exe\" $PYTHON -m pip install anthropic lightgbm holidays --quiet)",
+      "Bash($PYTHON -c \"import anthropic; import lightgbm; import holidays; print\\(''anthropic'', anthropic.__version__\\); print\\(''lightgbm'', lightgbm.__version__\\); print\\(''holidays ok''\\)\")",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash($PYTHON -m py_compile $f)",
+      "Bash(echo \"OK: $f\")",
+      "Bash(echo \"FAIL: $f\")",
+      "Bash($PYTHON -m py_compile modules/data_import.py)",
+      "Bash($PYTHON -c \":*)",
+      "Bash(done)",
+      "Bash(/d/Lenovo/anaconda/envs/python-project/python.exe -m pip show openai)"
+    ]
+  }
+}
