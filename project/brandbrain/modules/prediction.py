@@ -284,17 +284,22 @@ def render_prediction():
     q50 = result.get("q50", [])
     q90 = result.get("q90", [])
 
+    # 确保长度一致
+    min_len = min(len(q10), len(q50), len(q90), len(fc["forecast_dates"]))
+    q10, q50, q90 = q10[:min_len], q50[:min_len], q90[:min_len]
+    forecast_dates = fc["forecast_dates"][:min_len]
+
     tab1, tab2, tab3 = st.tabs(["📈 预测曲线", "🔍 SHAP解释", "🎯 注意力热力图"])
 
     with tab1:
         fig = plot_forecast(
             fc["history_dates"], fc["history_values"],
-            fc["forecast_dates"], q10, q50, q90,
+            forecast_dates, q10, q50, q90,
             title=f"未来 {len(q50)} {granularity} 销量预测",
         )
         st.plotly_chart(fig, use_container_width=True)
         pred_df = pd.DataFrame({
-            "日期": [str(d)[:10] for d in fc["forecast_dates"]],
+            "日期": [str(d)[:10] for d in forecast_dates],
             "P10（下界）": [round(v, 1) for v in q10],
             "P50（中位）": [round(v, 1) for v in q50],
             "P90（上界）": [round(v, 1) for v in q90],
